@@ -1,0 +1,65 @@
+{
+  "cloud_engine_version": "1.0.0",
+  "scene": {
+    "name": "NewScene",
+    "root": {
+      "type": "Node2D",
+      "name": "NewScene",
+      "properties": {
+        "position": [
+          0.0,
+          0.0
+        ],
+        "rotation": 0.0,
+        "scale": [
+          1.0,
+          1.0
+        ],
+        "z_index": 0,
+        "visible": true,
+        "modulate": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "z_as_relative": true
+      },
+      "children": [
+        {
+          "type": "Sprite2D",
+          "name": "Sprite2D",
+          "properties": {
+            "position": [
+              0.0,
+              0.0
+            ],
+            "rotation": -3.0,
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "z_index": -2,
+            "visible": true,
+            "modulate": [
+              255,
+              255,
+              255,
+              255
+            ],
+            "z_as_relative": true,
+            "texture_path": "",
+            "centered": true,
+            "offset": [
+              -4.0,
+              0.0
+            ],
+            "flip_h": false,
+            "flip_v": false,
+            "blend_mode": "normal"
+          }
+        }
+      ]
+    }
+  }
+}

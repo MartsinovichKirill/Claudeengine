@@ -1,0 +1,21 @@
+script PlayerMovement extends Behaviour:
+    export move_speed: float = 160.0
+    export top_down: bool = true
+
+    on ready():
+        let body = self.get_component("Rigidbody2D")
+        if body is not null and self.top_down:
+            body.gravity_scale = 0
+
+    on physics_process(delta):
+        let body = self.get_component("Rigidbody2D")
+        let tree = self.get_tree()
+        if body is null or tree is null:
+            return
+        let controls = tree.input
+        let x = float(controls.is_key_pressed("D") or controls.is_key_pressed("Right")) - float(controls.is_key_pressed("A") or controls.is_key_pressed("Left"))
+        let y = float(controls.is_key_pressed("S") or controls.is_key_pressed("Down")) - float(controls.is_key_pressed("W") or controls.is_key_pressed("Up"))
+        if self.top_down:
+            body.velocity = Vector2(x, y).normalized() * self.move_speed
+        else:
+            body.velocity = Vector2(x * self.move_speed, body.velocity.y)

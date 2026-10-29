@@ -1,0 +1,57 @@
+from engine.nodes.characterbody2d import CharacterBody2D
+from engine.math.vector2 import Vector2
+
+
+script PlayerController extends CharacterBody2D:
+    export walk_speed: float = 180.0
+    export run_speed: float = 330.0
+    export acceleration: float = 1800.0
+    export jump_speed: float = 520.0
+    export coyote_time: float = 0.10
+    export jump_buffer: float = 0.15
+
+    on ready():
+        self.sprite = self.get_node('Visual')
+        self.spawn = Vector2(self.position)
+        self.coyote = 0.0
+        self.buffer = 0.0
+        self.jump_held = false
+        self.jump_cut = false
+
+    on physics_process(delta):
+        controls = self.get_tree().input
+        if controls is None:
+            return
+        direction = controls.get_axis('template_left', 'template_right')
+        running = controls.is_action_pressed('template_run')
+        target = direction * (self.run_speed if running else self.walk_speed)
+        change = self.acceleration * delta
+        self.velocity.x += max(-change, min(change, target-self.velocity.x))
+        self.coyote = self.coyote_time if self.is_on_floor() else max(0.0, self.coyote-delta)
+        held = controls.is_action_pressed('template_jump')
+        if held and not self.jump_held:
+            self.buffer = self.jump_buffer
+        else:
+            self.buffer = max(0.0, self.buffer-delta)
+        self.jump_held = held
+        if self.buffer > 0.0 and self.coyote > 0.0:
+            self.velocity.y = -self.jump_speed
+            self.buffer = 0.0
+            self.coyote = 0.0
+            self.jump_cut = false
+        if not held and self.velocity.y < -180.0 and not self.jump_cut:
+            self.velocity.y *= 0.5
+            self.jump_cut = true
+        self.move_and_slide()
+        if abs(direction) > 0.01:
+            self.sprite.flip_h = direction < 0
+        state = 'Jump' if not self.is_on_floor() else ('Run' if running else 'Walk') if abs(self.velocity.x) > 8 else 'Idle'
+        if self.sprite.animation != state:
+            self.sprite.play(state, restart=true)
+        if self.position.y > 950 or controls.is_action_just_pressed('template_restart'):
+            self.position = Vector2(self.spawn)
+            self.velocity = Vector2()
+            self.buffer = self.coyote = 0.0
+            camera = self.get_tree().current_scene.find_node('Camera')
+            if camera is not None:
+                camera.reset_follow()

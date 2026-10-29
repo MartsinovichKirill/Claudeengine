@@ -1,0 +1,61 @@
+{
+  "name": "Sample Project",
+  "version": "1.0.0",
+  "main_scene": "scenes/main.scene",
+  "window": {
+    "width": 1024,
+    "height": 600,
+    "title": "Cloud Engine — Sample",
+    "background_color": [
+      0,
+      0,
+      0
+    ]
+  },
+  "physics": {
+    "gravity": [
+      0.0,
+      980.0
+    ],
+    "physics_fps": 60
+  },
+  "input": {
+    "jump": [
+      "Space",
+      "W",
+      "Up"
+    ],
+    "move_left": [
+      "A",
+      "Left"
+    ],
+    "move_right": [
+      "D",
+      "Right"
+    ],
+    "move_up": [
+      "W",
+      "Up"
+    ],
+    "move_down": [
+      "S",
+      "Down"
+    ],
+    "shoot": [
+      "Ctrl",
+      "F"
+    ],
+    "restart": [
+      "R"
+    ]
+  },
+  "audio": {
+    "master": 1.0,
+    "music": 0.8,
+    "sfx": 1.0
+  },
+  "render": {
+    "show_grid": true,
+    "grid_size": 32
+  }
+}

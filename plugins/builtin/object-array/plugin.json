@@ -1,0 +1,8 @@
+{
+  "id": "object-array",
+  "name": "Ряд объектов",
+  "version": "1.0.0",
+  "api_version": 1,
+  "entry": "plugin.py",
+  "description": "Создаёт ряд копий объекта с заданным шагом."
+}

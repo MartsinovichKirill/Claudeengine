@@ -1,0 +1,108 @@
+{
+  "format": "cloudengine.vgraph",
+  "version": 1,
+  "name": "demo_visual",
+  "nodes": [
+    {
+      "id": "a48dcb7c",
+      "type": "EventReady",
+      "x": 60.0,
+      "y": 60.0,
+      "props": {}
+    },
+    {
+      "id": "d28b35a8",
+      "type": "Print",
+      "x": 360.0,
+      "y": 60.0,
+      "props": {
+        "message": "Визуальный скрипт Cloud Engine запущен!"
+      }
+    },
+    {
+      "id": "7239aeab",
+      "type": "EventTimer",
+      "x": 60.0,
+      "y": 200.0,
+      "props": {
+        "interval": 3.0
+      }
+    },
+    {
+      "id": "59b7c2d7",
+      "type": "Print",
+      "x": 360.0,
+      "y": 200.0,
+      "props": {
+        "message": "Прошло 3 секунды (событие таймера)"
+      }
+    },
+    {
+      "id": "2fb735fc",
+      "type": "EventInput",
+      "x": 60.0,
+      "y": 340.0,
+      "props": {
+        "action": "jump"
+      }
+    },
+    {
+      "id": "ecbdbe94",
+      "type": "Branch",
+      "x": 300.0,
+      "y": 340.0,
+      "props": {}
+    },
+    {
+      "id": "948affc1",
+      "type": "Print",
+      "x": 540.0,
+      "y": 300.0,
+      "props": {
+        "message": "Прыжок обнаружен визуальным скриптом"
+      }
+    },
+    {
+      "id": "1cc67e9d",
+      "type": "InputPressed",
+      "x": 300.0,
+      "y": 470.0,
+      "props": {
+        "action": "jump",
+        "mode": "just_pressed"
+      }
+    }
+  ],
+  "links": [
+    {
+      "from_node": "a48dcb7c",
+      "from_pin": "out",
+      "to_node": "d28b35a8",
+      "to_pin": "exec"
+    },
+    {
+      "from_node": "7239aeab",
+      "from_pin": "out",
+      "to_node": "59b7c2d7",
+      "to_pin": "exec"
+    },
+    {
+      "from_node": "2fb735fc",
+      "from_pin": "out",
+      "to_node": "ecbdbe94",
+      "to_pin": "exec"
+    },
+    {
+      "from_node": "1cc67e9d",
+      "from_pin": "value",
+      "to_node": "ecbdbe94",
+      "to_pin": "condition"
+    },
+    {
+      "from_node": "ecbdbe94",
+      "from_pin": "true",
+      "to_node": "948affc1",
+      "to_pin": "exec"
+    }
+  ]
+}

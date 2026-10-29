@@ -1,0 +1,8 @@
+{
+  "id": "project-stats",
+  "name": "Статистика проекта",
+  "version": "1.0.0",
+  "api_version": 1,
+  "entry": "plugin.py",
+  "description": "Количество файлов, размер, объекты, компоненты и скрипты."
+}

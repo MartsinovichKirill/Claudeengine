@@ -1,0 +1,407 @@
+{
+  "scene": {
+    "name": "Player Controller",
+    "root": {
+      "type": "Node2D",
+      "name": "PlayerDemo",
+      "properties": {},
+      "children": [
+        {
+          "type": "Parallax2D",
+          "name": "FarBackground",
+          "properties": {
+            "scroll_scale": [
+              0.15,
+              0.08
+            ],
+            "repeat_size": [
+              1024,
+              0
+            ],
+            "z_index": -20
+          },
+          "children": [
+            {
+              "type": "Sprite2D",
+              "name": "Mountains",
+              "properties": {
+                "texture_path": "assets/templates/@TEMPLATE@/far.png",
+                "position": [
+                  512,
+                  180
+                ]
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "Parallax2D",
+          "name": "NearBackground",
+          "properties": {
+            "scroll_scale": [
+              0.4,
+              0.15
+            ],
+            "repeat_size": [
+              1024,
+              0
+            ],
+            "z_index": -10
+          },
+          "children": [
+            {
+              "type": "Sprite2D",
+              "name": "Hills",
+              "properties": {
+                "texture_path": "assets/templates/@TEMPLATE@/near.png",
+                "position": [
+                  512,
+                  260
+                ]
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "StaticBody2D",
+          "name": "Ground",
+          "properties": {
+            "position": [
+              1500,
+              550
+            ]
+          },
+          "children": [
+            {
+              "type": "CollisionShape2D",
+              "name": "Collider",
+              "properties": {
+                "size": [
+                  4200,
+                  140
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "Sprite2D",
+              "name": "Surface",
+              "properties": {
+                "texture_path": "assets/templates/@TEMPLATE@/ground.png",
+                "scale": [
+                  65.625,
+                  2.1875
+                ]
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "StaticBody2D",
+          "name": "Step1",
+          "properties": {
+            "position": [
+              650,
+              410
+            ]
+          },
+          "children": [
+            {
+              "type": "CollisionShape2D",
+              "name": "Collider",
+              "properties": {
+                "size": [
+                  180,
+                  36
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "Sprite2D",
+              "name": "Surface",
+              "properties": {
+                "texture_path": "assets/templates/@TEMPLATE@/ground.png",
+                "scale": [
+                  2.8125,
+                  0.5625
+                ]
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "StaticBody2D",
+          "name": "Step2",
+          "properties": {
+            "position": [
+              1000,
+              335
+            ]
+          },
+          "children": [
+            {
+              "type": "CollisionShape2D",
+              "name": "Collider",
+              "properties": {
+                "size": [
+                  180,
+                  36
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "Sprite2D",
+              "name": "Surface",
+              "properties": {
+                "texture_path": "assets/templates/@TEMPLATE@/ground.png",
+                "scale": [
+                  2.8125,
+                  0.5625
+                ]
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "StaticBody2D",
+          "name": "Step3",
+          "properties": {
+            "position": [
+              1350,
+              260
+            ]
+          },
+          "children": [
+            {
+              "type": "CollisionShape2D",
+              "name": "Collider",
+              "properties": {
+                "size": [
+                  220,
+                  36
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "Sprite2D",
+              "name": "Surface",
+              "properties": {
+                "texture_path": "assets/templates/@TEMPLATE@/ground.png",
+                "scale": [
+                  3.4375,
+                  0.5625
+                ]
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "StaticBody2D",
+          "name": "Landing",
+          "properties": {
+            "position": [
+              1780,
+              390
+            ]
+          },
+          "children": [
+            {
+              "type": "CollisionShape2D",
+              "name": "Collider",
+              "properties": {
+                "size": [
+                  300,
+                  36
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "Sprite2D",
+              "name": "Surface",
+              "properties": {
+                "texture_path": "assets/templates/@TEMPLATE@/ground.png",
+                "scale": [
+                  4.6875,
+                  0.5625
+                ]
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "CharacterBody2D",
+          "name": "Player",
+          "properties": {
+            "position": [
+              180,
+              435
+            ]
+          },
+          "children": [
+            {
+              "type": "CollisionShape2D",
+              "name": "Collider",
+              "properties": {
+                "size": [
+                  42,
+                  90
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "AnimatedSprite2D",
+              "name": "Visual",
+              "properties": {
+                "position": [
+                  0,
+                  -27
+                ],
+                "scale": [
+                  3,
+                  3
+                ],
+                "animation": "Idle",
+                "playing": true
+              },
+              "children": [],
+              "data": {
+                "animations": {
+                  "Idle": {
+                    "frames": [
+                      "assets/templates/@TEMPLATE@/idle/idle_00.png",
+                      "assets/templates/@TEMPLATE@/idle/idle_01.png",
+                      "assets/templates/@TEMPLATE@/idle/idle_02.png",
+                      "assets/templates/@TEMPLATE@/idle/idle_03.png",
+                      "assets/templates/@TEMPLATE@/idle/idle_04.png",
+                      "assets/templates/@TEMPLATE@/idle/idle_05.png",
+                      "assets/templates/@TEMPLATE@/idle/idle_06.png",
+                      "assets/templates/@TEMPLATE@/idle/idle_07.png",
+                      "assets/templates/@TEMPLATE@/idle/idle_08.png",
+                      "assets/templates/@TEMPLATE@/idle/idle_09.png"
+                    ],
+                    "fps": 7,
+                    "loop": true
+                  },
+                  "Walk": {
+                    "frames": [
+                      "assets/templates/@TEMPLATE@/walk/walk_00.png",
+                      "assets/templates/@TEMPLATE@/walk/walk_01.png",
+                      "assets/templates/@TEMPLATE@/walk/walk_02.png",
+                      "assets/templates/@TEMPLATE@/walk/walk_03.png",
+                      "assets/templates/@TEMPLATE@/walk/walk_04.png",
+                      "assets/templates/@TEMPLATE@/walk/walk_05.png",
+                      "assets/templates/@TEMPLATE@/walk/walk_06.png",
+                      "assets/templates/@TEMPLATE@/walk/walk_07.png",
+                      "assets/templates/@TEMPLATE@/walk/walk_08.png",
+                      "assets/templates/@TEMPLATE@/walk/walk_09.png"
+                    ],
+                    "fps": 10,
+                    "loop": true
+                  },
+                  "Run": {
+                    "frames": [
+                      "assets/templates/@TEMPLATE@/run/run_00.png",
+                      "assets/templates/@TEMPLATE@/run/run_01.png",
+                      "assets/templates/@TEMPLATE@/run/run_02.png",
+                      "assets/templates/@TEMPLATE@/run/run_03.png",
+                      "assets/templates/@TEMPLATE@/run/run_04.png",
+                      "assets/templates/@TEMPLATE@/run/run_05.png",
+                      "assets/templates/@TEMPLATE@/run/run_06.png",
+                      "assets/templates/@TEMPLATE@/run/run_07.png",
+                      "assets/templates/@TEMPLATE@/run/run_08.png",
+                      "assets/templates/@TEMPLATE@/run/run_09.png"
+                    ],
+                    "fps": 16,
+                    "loop": true
+                  },
+                  "Jump": {
+                    "frames": [
+                      "assets/templates/@TEMPLATE@/jump/jump_00.png",
+                      "assets/templates/@TEMPLATE@/jump/jump_01.png",
+                      "assets/templates/@TEMPLATE@/jump/jump_02.png",
+                      "assets/templates/@TEMPLATE@/jump/jump_03.png",
+                      "assets/templates/@TEMPLATE@/jump/jump_04.png",
+                      "assets/templates/@TEMPLATE@/jump/jump_05.png"
+                    ],
+                    "fps": 10,
+                    "loop": false
+                  }
+                }
+              }
+            }
+          ],
+          "script": "scripts/templates/@TEMPLATE@.cloud"
+        },
+        {
+          "type": "Camera2D",
+          "name": "Camera",
+          "properties": {
+            "position": [
+              180,
+              335
+            ],
+            "target_path": "Player",
+            "position_smoothing": 6,
+            "look_ahead": 65,
+            "offset": [
+              0,
+              -100
+            ]
+          },
+          "children": []
+        },
+        {
+          "type": "CanvasLayer",
+          "name": "HUD",
+          "properties": {
+            "layer": 5,
+            "offset": [
+              24,
+              20
+            ]
+          },
+          "children": [
+            {
+              "type": "Label",
+              "name": "Title",
+              "properties": {
+                "text": "Контроллер игрока 2D",
+                "font_size": 24,
+                "position": [
+                  0,
+                  0
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "Label",
+              "name": "Controls",
+              "properties": {
+                "text": "A / D — ходьба   Shift — бег   Пробел — прыжок   R — на старт",
+                "font_size": 18,
+                "position": [
+                  0,
+                  38
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

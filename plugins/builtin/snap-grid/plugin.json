@@ -1,0 +1,8 @@
+{
+  "id": "snap-grid",
+  "name": "Привязка к сетке",
+  "version": "1.0.0",
+  "api_version": 1,
+  "entry": "plugin.py",
+  "description": "Выравнивает выбранные объекты по заданному шагу."
+}
